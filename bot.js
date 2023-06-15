@@ -6,6 +6,8 @@ const { ActivityType } = require('discord.js');
 // Les fichiers dont le bot a besoin.
 const CommandLoader = require("./BotLoaders/CommandsLoader")
 const EventLoader = require("./BotLoaders/EventsLoader")
+const JoinEvent = require("./JoinSystem/SomeoneJoin")
+const LeaveEvent = require("./JoinSystem/SomeoneLeave")
 
 // Initialiser le programme et les intents du bot
 const colveri = new Client({
@@ -36,6 +38,9 @@ const colveri = new Client({
 colveri.commands = new Discord.Collection()
 CommandLoader(colveri)
 EventLoader(colveri)
+JoinEvent(colveri)
+LeaveEvent(colveri)
+
 
 // Faire la liaison entre le programme et le compte Discord du bot.
 colveri.login("MTExODY0MTM0NDMyODUwMzQyNw.GdJrvX.RmpARRN_ak7cGBASwfPN_etOyXFFUxcaC0V3EU");
